@@ -6,7 +6,7 @@ var coreConfig = {
 
     resolve: {
         // Add '.ts' and '.tsx' as resolvable extensions.
-        extensions: [".ts", ".tsx", ".js", ".json"]
+        extensions: [".ts", ".tsx", ".js", ".json", ".svg"]
     },
 
     plugins: [
@@ -37,6 +37,10 @@ var coreConfig = {
             {
                 test: require.resolve('microsoft-adaptivecards'),
                 use: [{ loader: 'expose-loader', options: 'AdaptiveCards' }]
+            },
+            {
+                test: /\.svg$/,
+                loader: 'svg-inline-loader'
             }
         ]
     }

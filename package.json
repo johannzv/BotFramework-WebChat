@@ -59,6 +59,7 @@
     "concurrently": "3.1.0",
     "deep-freeze": "0.0.1",
     "dotenv": "4.0.0",
+    "eslint": "^4.10.0",
     "expose-loader": "0.7.3",
     "express": "4.14.0",
     "fs-extra": "1.0.0",
@@ -74,10 +75,10 @@
     "remote": "0.2.6",
     "rimraf": "2.6.1",
     "source-map-loader": "0.2.1",
+    "svg-inline-loader": "^0.8.0",
     "typescript": "2.3",
     "vo": "4.0.2",
-    "webpack": "2.3.3",
-    "eslint": "^4.10.0"
+    "webpack": "2.3.3"
   },
   "files": [
     "built/",
