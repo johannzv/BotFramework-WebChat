@@ -74,9 +74,7 @@ export class Chat extends React.Component<ChatProps, {}> {
         if (props.speechOptions) {
             Speech.SpeechRecognizer.setSpeechRecognizer(props.speechOptions.speechRecognizer);
             Speech.SpeechSynthesizer.setSpeechSynthesizer(props.speechOptions.speechSynthesizer);
-        }
-
-       
+        }      
     }
 
     private handleIncomingActivity(activity: Activity) {
@@ -183,8 +181,7 @@ export class Chat extends React.Component<ChatProps, {}> {
     // 2. To determine the margins of any given carousel (we just render one mock activity so that we can measure it)
     // 3. (this is also the normal re-render case) To render without the mock activity
 
-    render() {
-        
+    render() {      
         const state = this.store.getState();
         konsole.log("BotChat.Chat state", state);
 
@@ -201,8 +198,7 @@ export class Chat extends React.Component<ChatProps, {}> {
             <ResizeDetector onresize={ this.resizeListener } />;
 
         return (
-            <Provider store={ this.store }>
-            
+            <Provider store={ this.store }>            
                 <div
                     className="wc-chatview-panel"
                     onKeyDownCapture={ this._handleKeyDownCapture }
