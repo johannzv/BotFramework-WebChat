@@ -14,6 +14,8 @@ import { ActivityOrID, FormatOptions } from './Types';
 import * as konsole from './Konsole';
 import { getTabIndex } from './getTabIndex';
 
+const Cross = require('./../assets/cross.svg');
+
 export interface ChatProps {
     user: User,
     bot: User,
@@ -24,7 +26,9 @@ export interface ChatProps {
     selectedActivity?: BehaviorSubject<ActivityOrID>,
     sendTyping?: boolean,
     formatOptions?: FormatOptions,
-    resize?: 'none' | 'window' | 'detect'
+    resize?: 'none' | 'window' | 'detect',
+    OnQuit?: VoidFunction
+   
 }
 
 import { History } from './History';
@@ -36,6 +40,8 @@ export class Chat extends React.Component<ChatProps, {}> {
     private store = createStore();
 
     private botConnection: IBotConnection;
+   
+
 
     private activitySubscription: Subscription;
     private connectionStatusSubscription: Subscription;
@@ -47,6 +53,7 @@ export class Chat extends React.Component<ChatProps, {}> {
 
     private _handleKeyDownCapture = this.handleKeyDownCapture.bind(this);
     private _saveShellRef = this.saveShellRef.bind(this);
+    private onQuit:void;
 
     constructor(props: ChatProps) {
         super(props);
@@ -68,6 +75,8 @@ export class Chat extends React.Component<ChatProps, {}> {
             Speech.SpeechRecognizer.setSpeechRecognizer(props.speechOptions.speechRecognizer);
             Speech.SpeechSynthesizer.setSpeechSynthesizer(props.speechOptions.speechSynthesizer);
         }
+
+       
     }
 
     private handleIncomingActivity(activity: Activity) {
@@ -117,7 +126,7 @@ export class Chat extends React.Component<ChatProps, {}> {
     }
 
     private saveShellRef(shellWrapper: any) {
-        this.shellRef = shellWrapper.getWrappedInstance();
+        //this.shellRef = shellWrapper.getWrappedInstance();
     }
 
     componentDidMount() {
@@ -175,6 +184,7 @@ export class Chat extends React.Component<ChatProps, {}> {
     // 3. (this is also the normal re-render case) To render without the mock activity
 
     render() {
+        
         const state = this.store.getState();
         konsole.log("BotChat.Chat state", state);
 
@@ -183,6 +193,7 @@ export class Chat extends React.Component<ChatProps, {}> {
         if (state.format.options.showHeader) header =
             <div className="wc-header">
                 <span>{ state.format.strings.title }</span>
+                <img src={Cross} className="wc-header-cross" onClick={this.props.OnQuit}/>
             </div>;
 
         let resize: JSX.Element;
@@ -191,6 +202,7 @@ export class Chat extends React.Component<ChatProps, {}> {
 
         return (
             <Provider store={ this.store }>
+            
                 <div
                     className="wc-chatview-panel"
                     onKeyDownCapture={ this._handleKeyDownCapture }
