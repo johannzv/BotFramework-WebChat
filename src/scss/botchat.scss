@@ -43,7 +43,7 @@
         box-shadow: 0 1px $c_shadow;
         box-sizing: content-box;
         color: $c01;
-        font-weight: 500;
+        font-weight: 400;
         height: $headerTotalHeight - $headerPaddingTop - $headerPaddingBottom;
         left: 0;
         letter-spacing: 0.5px;
@@ -55,6 +55,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        font-family: $fontFamily;
     }
 
     .wc-header-cross{
