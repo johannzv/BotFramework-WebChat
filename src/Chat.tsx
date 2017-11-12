@@ -14,7 +14,7 @@ import { ActivityOrID, FormatOptions } from './Types';
 import * as konsole from './Konsole';
 import { getTabIndex } from './getTabIndex';
 
-const Cross = require('./../assets/cross.svg');
+
 
 export interface ChatProps {
     user: User,
@@ -27,7 +27,8 @@ export interface ChatProps {
     sendTyping?: boolean,
     formatOptions?: FormatOptions,
     resize?: 'none' | 'window' | 'detect',
-    OnQuit?: VoidFunction
+    OnQuit?: VoidFunction,
+    IconRight:any
    
 }
 
@@ -190,7 +191,7 @@ export class Chat extends React.Component<ChatProps, {}> {
         if (state.format.options.showHeader) header =
             <div className="wc-header">
                 <span>{ state.format.strings.title }</span>
-                <img src={Cross} className="wc-header-cross" onClick={this.props.OnQuit}/>
+                <img src={this.props.IconRight} className="wc-header-cross" onClick={this.props.OnQuit}/>
             </div>;
 
         let resize: JSX.Element;
