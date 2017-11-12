@@ -6,7 +6,7 @@
 
     body .wc-app, .wc-app button, .wc-app input, .wc-app textarea {
         font-family: $fontFamily;
-        font-size: $fontSize;
+        font-size: $fontSize;  
     }
 
     .wc-app button {
@@ -682,6 +682,7 @@
 
     .format-markdown>p {
         margin-bottom: 0px;
+        margin-top: 0px;
     }
 
     .format-markdown code {
