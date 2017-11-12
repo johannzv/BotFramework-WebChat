@@ -16,9 +16,7 @@
         color: $c01;
         cursor: pointer;
         outline: none;
-        transition: color .2s ease, background-color .2s ease;
-        
-        
+        transition: color .2s ease, background-color .2s ease; 
     }
 
     .wc-app:focus {outline:0;}
