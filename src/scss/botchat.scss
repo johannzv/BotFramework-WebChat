@@ -16,7 +16,7 @@
         color: $c01;
         cursor: pointer;
         outline: none;
-        transition: color .2s ease, background-color .2s ease; 
+        transition: color .2s ease, background-color .2s ease;
     }
 
     .wc-app:focus {outline:0;}
@@ -290,7 +290,6 @@
             background-color: transparent;
             color: $c_brand;
             min-height: 32px;
-            width: 100%;
             padding: 0 16px;
             border-radius: 16px;
         }
