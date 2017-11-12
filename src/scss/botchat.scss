@@ -17,6 +17,8 @@
         cursor: pointer;
         outline: none;
         transition: color .2s ease, background-color .2s ease;
+        
+        
     }
 
     .wc-app:focus {outline:0;}
@@ -292,6 +294,7 @@
             min-height: 32px;
             width: 100%;
             padding: 0 16px;
+            border-radius: 16px;
         }
 
         button:hover {
@@ -422,6 +425,7 @@
 
 /* adaptive card adjustments from wc-card */
     .wc-adaptive-card {
+        width: 100%;
 
         p {
             margin-left: 0;
